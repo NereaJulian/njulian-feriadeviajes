@@ -1,0 +1,14 @@
+mi-feria-viajes/
+├─ index.html
+├─ destinos.html
+├─ eventos.html
+├─ galeria.html
+├─ contacto.html
+├─ estilos/
+│  └─ estilos.css
+└─ imagenes/
+   ├─ imagen1.jpg
+   ├─ imagen2.jpg
+   ├─ imagen3.jpg
+   ├─ imagen4.jpg
+   └─ imagen5.jpg
