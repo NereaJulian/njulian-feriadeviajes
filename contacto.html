@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacto - Feria</title>
+  <link rel="stylesheet" href="estilos/estilos.css" />
+</head>
+<body>
+  <header class="site-header"><div class="container"><h1>Contacto</h1></div></header>
+  <main class="container">
+    <form action="mailto:njulian@birt.eus" method="get" enctype="text/plain" class="form-grid">
+      <label for="nombre">Nombre:</label><input id="nombre" name="Nombre" type="text" required />
+      <label for="email">Email:</label><input id="email" name="Email" type="email" required />
+      <label for="asunto">Asunto:</label><input id="asunto" name="Asunto" type="text" />
+      <label for="mensaje">Mensaje:</label><textarea id="mensaje" name="Mensaje" rows="5"></textarea>
+      <div class="fullwidth">
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpiar</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
