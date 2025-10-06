@@ -3,22 +3,53 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contacto - Feria</title>
+  <title>Contacto</title>
   <link rel="stylesheet" href="estilos/estilos.css" />
 </head>
 <body>
-  <header class="site-header"><div class="container"><h1>Contacto</h1></div></header>
+  <!-- Header con menú -->
+  <header class="site-header">
+    <div class="container">
+      <h1>Contacto</h1>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="destinos.html">Destinos</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
   <main class="container">
     <form action="mailto:njulian@birt.eus" method="get" enctype="text/plain" class="form-grid">
-      <label for="nombre">Nombre:</label><input id="nombre" name="Nombre" type="text" required />
-      <label for="email">Email:</label><input id="email" name="Email" type="email" required />
-      <label for="asunto">Asunto:</label><input id="asunto" name="Asunto" type="text" />
-      <label for="mensaje">Mensaje:</label><textarea id="mensaje" name="Mensaje" rows="5"></textarea>
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" name="Nombre" type="text" required />
+
+      <label for="email">Email:</label>
+      <input id="email" name="Email" type="email" required />
+
+      <label for="asunto">Asunto:</label>
+      <input id="asunto" name="Asunto" type="text" />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="Mensaje" rows="5"></textarea>
+
       <div class="fullwidth">
         <button type="submit">Enviar</button>
         <button type="reset">Limpiar</button>
       </div>
     </form>
   </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Feria de Viajes</p>
+    </div>
+  </footer>
 </body>
 </html>
