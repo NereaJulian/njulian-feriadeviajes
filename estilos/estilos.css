@@ -29,3 +29,14 @@ button[type="reset"] { background:#777; }
   .form-grid { grid-template-columns: 1fr; }
   .site-header h1 { font-size:1.25rem; }
 }
+
+/* === Enlaces: mantener mismo color aunque se visiten === */
+a:link,
+a:visited {
+  color: #0b66a3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
