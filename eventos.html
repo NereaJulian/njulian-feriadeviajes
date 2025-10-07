@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="estilos/estilos.css" />
 </head>
 <body>
-  <!-- Header con menú -->
+  <!-- ======================= -->
+  <!-- HEADER: cabecera y menú principal -->
+  <!-- ======================= -->
   <header class="site-header">
     <div class="container">
       <h1>Eventos</h1>
@@ -23,11 +25,26 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
+  <!-- ======================= -->
+  <!-- MAIN: contenido principal -->
+  <!-- ======================= -->
   <main class="container">
+    <!-- Enlace a la ubicación de la feria -->
+    <p>
+      La feria de viajes se celebrará en: 
+      <a href="https://www.google.com/maps/place/BIRTLH+-+CIFP+DE+APRENDIZAJES+VIRTUALES+Y+DIGITALIZADOS,+Araba+Kalea,+41,+barnekaldea,+01006+Vitoria-Gasteiz,+Álava" target="_blank">
+        BIRTLH - CIFP DE APRENDIZAJES VIRTUALES Y DIGITALIZADOS, Araba Kalea, 41, Vitoria-Gasteiz
+      </a>
+    </p>
+
+    <!-- Tabla de eventos -->
     <table>
       <thead>
-        <tr><th>Día</th><th>Hora</th><th>Actividad</th></tr>
+        <tr>
+          <th>Día</th>
+          <th>Hora</th>
+          <th>Actividad</th>
+        </tr>
       </thead>
       <tbody>
         <tr><td>12/05/2025</td><td>10:00</td><td>Inauguración</td></tr>
@@ -35,8 +52,30 @@
         <tr><td>12/05/2025</td><td>17:00</td><td>Ofertas de hoteles</td></tr>
       </tbody>
     </table>
+
+    <!-- Formulario de inscripción a la charla -->
+    <section class="formulario-charla">
+      <h3>Apúntate a la charla sobre guías turísticos</h3>
+      <form action="#" method="post">
+        <div class="form-grid">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" placeholder="Tu correo" required />
+
+          <div class="fullwidth">
+            <button type="submit">Apuntarse</button>
+            <button type="reset">Borrar</button>
+          </div>
+        </div>
+      </form>
+    </section>
   </main>
 
+  <!-- ======================= -->
+  <!-- FOOTER: pie de página con copyright -->
+  <!-- ======================= -->
   <footer class="site-footer">
     <div class="container">
       <p>© Feria de Viajes</p>
