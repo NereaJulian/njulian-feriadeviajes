@@ -40,3 +40,44 @@ a:visited {
 a:hover {
   text-decoration: underline;
 }
+
+/* === Distribución de la página de destinos === */
+.destinos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+/* === Galería === */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+
+.galeria figure {
+  margin: 0;
+  text-align: center;
+}
+
+.galeria img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover; /* evita deformaciones */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.galeria figcaption {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #0b66a3;
+}
+
+@media (max-width:700px) {
+  .destinos-grid {
+    grid-template-columns: 1fr;
+  }
+}
