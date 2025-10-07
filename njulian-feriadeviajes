@@ -7,8 +7,16 @@ mi-feria-viajes/
 ├─ estilos/
 │  └─ estilos.css
 └─ imagenes/
-   ├─ imagen1.jpg
-   ├─ imagen2.jpg
-   ├─ imagen3.jpg
-   ├─ imagen4.jpg
-   └─ imagen5.jpg
+   ├─ bali.jpg
+   ├─ bangkok.jpg
+   ├─ banner.jpg
+   ├─ barcelona.jpg
+   ├─ buenosaires.jpg
+   ├─ elcairo.jpg
+   ├─ losangeles.jpg
+   ├─ marrakech.jpg
+   ├─ nuevayork.jpg
+   ├─ paris.jpg
+   ├─ roma.jpg
+   ├─ tokyo.jpg
+   └─ zanzibar.jpg
