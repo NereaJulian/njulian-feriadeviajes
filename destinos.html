@@ -37,6 +37,7 @@
       <button onclick="filtrarDestinos('ciudad')">Ciudad</button>
       <button onclick="filtrarDestinos('montaña')">Montaña</button>
       <button onclick="filtrarDestinos('playa')">Playa</button>
+      <button onclick="filtrarDestinos('cerca-playa')">Cerca de playa</button>
     </section>
 
     <!-- Columna izquierda: información de destinos -->
@@ -44,29 +45,29 @@
       <h3>Destinos destacados en Europa</h3>
       <ol>
         <li class="destino" data-tipo="ciudad">París (Francia)</li>
-        <li class="destino" data-tipo="ciudad">Barcelona (España)</li>
+        <li class="destino" data-tipo="playa">Barcelona (España)</li>
         <li class="destino" data-tipo="ciudad">Roma (Italia)</li>
       </ol>
 
       <h3>Destinos destacados en Asia</h3>
       <ol>
         <li class="destino" data-tipo="ciudad">Tokio (Japón)</li>
-        <li class="destino" data-tipo="playa">Bangkok (Tailandia)</li>
+        <li class="destino" data-tipo="cerca-playa">Bangkok (Tailandia)</li>
         <li class="destino" data-tipo="montaña playa">Bali (Indonesia)</li>
       </ol>
 
       <h3>Destinos destacados en América</h3>
       <ol>
         <li class="destino" data-tipo="ciudad">Nueva York (Estados Unidos)</li>
-        <li class="destino" data-tipo="ciudad">Los Ángeles (Estados Unidos)</li>
-        <li class="destino" data-tipo="ciudad">Buenos Aires (Argentina)</li>
+        <li class="destino" data-tipo="playa">Los Ángeles (Estados Unidos)</li>
+        <li class="destino" data-tipo="cerca-playa">Buenos Aires (Argentina)</li>
       </ol>
 
       <h3>Destinos destacados en África</h3>
       <ol>
         <li class="destino" data-tipo="playa">Zanzíbar (Tanzania)</li>
-        <li class="destino" data-tipo="playa">Marrakech (Marruecos)</li>
-        <li class="destino" data-tipo="playa">El Cairo (Egipto)</li>
+        <li class="destino" data-tipo="ciudad">Marrakech (Marruecos)</li>
+        <li class="destino" data-tipo="cerca-playa">El Cairo (Egipto)</li>
       </ol>
 
       <p>
@@ -77,54 +78,18 @@
 
     <!-- Columna derecha: galería de imágenes -->
     <aside class="galeria">
-      <figure>
-        <img src="imagenes/paris.jpg" alt="Vista de París, Francia">
-        <figcaption>París</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/barcelona.jpg" alt="Vista de Barcelona, España">
-        <figcaption>Barcelona</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/roma.jpg" alt="Vista de Roma, Italia">
-        <figcaption>Roma</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/tokyo.jpg" alt="Vista de Tokio, Japón">
-        <figcaption>Tokio</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/bangkok.jpg" alt="Vista de Bangkok, Tailandia">
-        <figcaption>Bangkok</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/bali.jpg" alt="Vista de Bali, Indonesia">
-        <figcaption>Bali</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/nuevayork.jpg" alt="Vista de Nueva York, Estados Unidos">
-        <figcaption>Nueva York</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/losangeles.jpg" alt="Vista de Los Ángeles, Estados Unidos">
-        <figcaption>Los Ángeles</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/buenosaires.jpg" alt="Vista de Buenos Aires, Argentina">
-        <figcaption>Buenos Aires</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/marrakech.jpg" alt="Vista de Marrakech, Marruecos">
-        <figcaption>Marrakech</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/elcairo.jpg" alt="Vista de El Cairo, Egipto">
-        <figcaption>El Cairo</figcaption>
-      </figure>
-      <figure>
-        <img src="imagenes/zanzibar.jpg" alt="Vista de Zanzíbar, Tanzania">
-        <figcaption>Zanzíbar</figcaption>
-      </figure>
+      <figure><img src="imagenes/paris.jpg" alt="Vista de París, Francia"><figcaption>París</figcaption></figure>
+      <figure><img src="imagenes/barcelona.jpg" alt="Vista de Barcelona, España"><figcaption>Barcelona</figcaption></figure>
+      <figure><img src="imagenes/roma.jpg" alt="Vista de Roma, Italia"><figcaption>Roma</figcaption></figure>
+      <figure><img src="imagenes/tokyo.jpg" alt="Vista de Tokio, Japón"><figcaption>Tokio</figcaption></figure>
+      <figure><img src="imagenes/bangkok.jpg" alt="Vista de Bangkok, Tailandia"><figcaption>Bangkok</figcaption></figure>
+      <figure><img src="imagenes/bali.jpg" alt="Vista de Bali, Indonesia"><figcaption>Bali</figcaption></figure>
+      <figure><img src="imagenes/nuevayork.jpg" alt="Vista de Nueva York, Estados Unidos"><figcaption>Nueva York</figcaption></figure>
+      <figure><img src="imagenes/losangeles.jpg" alt="Vista de Los Ángeles, Estados Unidos"><figcaption>Los Ángeles</figcaption></figure>
+      <figure><img src="imagenes/buenosaires.jpg" alt="Vista de Buenos Aires, Argentina"><figcaption>Buenos Aires</figcaption></figure>
+      <figure><img src="imagenes/marrakech.jpg" alt="Vista de Marrakech, Marruecos"><figcaption>Marrakech</figcaption></figure>
+      <figure><img src="imagenes/elcairo.jpg" alt="Vista de El Cairo, Egipto"><figcaption>El Cairo</figcaption></figure>
+      <figure><img src="imagenes/zanzibar.jpg" alt="Vista de Zanzíbar, Tanzania"><figcaption>Zanzíbar</figcaption></figure>
     </aside>
 
   </main>
@@ -142,14 +107,5 @@
   <!-- Vinculación de JS -->
   <!-- ======================= -->
   <script src="funciones/funciones.js"></script>
-  <script>
-    // Inicializar filtros para destinos
-    document.querySelectorAll(".filtro button").forEach(boton => {
-      boton.addEventListener("click", () => {
-        const tipo = boton.dataset.tipo || boton.textContent.toLowerCase();
-        filtrarDestinos(tipo);
-      });
-    });
-  </script>
 </body>
 </html>
