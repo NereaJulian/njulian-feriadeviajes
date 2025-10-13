@@ -40,14 +40,17 @@
       </p>
     </section>
 
-    <!-- Formulario de contacto con validación JS -->
-    <form action="mailto:njulian@birt.eus" method="get" enctype="text/plain" class="form-grid"
-          onsubmit="validarFormularioContacto(event)">
+    <!-- Formulario de contacto con validación JS y envío por Formsubmit -->
+    <form action="https://formsubmit.co/nereajulianl@gmail.com" method="POST" class="form-grid"
+          onsubmit="return validarFormularioContacto()">
+      <input type="hidden" name="_next" value="https://nereajulian.github.io/njulian-feriadeviajes/contacto.html">
+      <input type="hidden" name="_captcha" value="false">
+
       <label for="nombre">Nombre:</label>
-      <input id="nombre" name="Nombre" type="text" required />
+      <input id="nombre" name="Nombre" type="text" />
 
       <label for="email">Email:</label>
-      <input id="email" name="Email" type="email" required />
+      <input id="email" name="Email" type="email" />
 
       <label for="asunto">Asunto:</label>
       <input id="asunto" name="Asunto" type="text" />
