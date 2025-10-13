@@ -34,7 +34,28 @@ function filtrarDestinos(tipo) {
             destino.style.display = "none";
         }
     });
+
+    // Resaltar botón activo
+    const botones = document.querySelectorAll(".filtro button");
+    botones.forEach(boton => {
+        if (boton.textContent.toLowerCase().replace(/\s/g, '-') === tipo) {
+            boton.classList.add("activo");
+        } else {
+            boton.classList.remove("activo");
+        }
+    });
 }
+
+// Inicializar botones de filtro al cargar la página
+window.addEventListener("load", () => {
+    const botones = document.querySelectorAll(".filtro button");
+    botones.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const tipo = boton.textContent.toLowerCase().replace(/\s/g, '-');
+            filtrarDestinos(tipo);
+        });
+    });
+});
 
 /* -------------------------
    Funciones para eventos.html
