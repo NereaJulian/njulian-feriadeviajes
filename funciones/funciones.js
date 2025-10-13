@@ -28,21 +28,13 @@ function filtrarDestinos(tipo) {
     const destinos = document.querySelectorAll(".destino");
     destinos.forEach(destino => {
         const tipos = destino.dataset.tipo.split(" ");
-        if (tipo === "todos" || tipos.includes(tipo)) {
-            destino.style.display = "list-item";
-        } else {
-            destino.style.display = "none";
-        }
+        destino.style.display = (tipo === "todos" || tipos.includes(tipo)) ? "list-item" : "none";
     });
 
     // Resaltar botón activo
     const botones = document.querySelectorAll(".filtro button");
     botones.forEach(boton => {
-        if (boton.textContent.toLowerCase().replace(/\s/g, '-') === tipo) {
-            boton.classList.add("activo");
-        } else {
-            boton.classList.remove("activo");
-        }
+        boton.classList.toggle("activo", boton.textContent.toLowerCase().replace(/\s/g, '-') === tipo);
     });
 }
 
@@ -68,17 +60,17 @@ function mostrarPopupCharla() {
     const popup = document.createElement("div");
     popup.id = "popupCharla";
     popup.style.position = "fixed";
-    popup.style.top = "20px"; // Arriba
+    popup.style.top = "20px";
     popup.style.left = "50%";
-    popup.style.transform = "translateX(-50%)"; // Centrado horizontal
+    popup.style.transform = "translateX(-50%)";
     popup.style.backgroundColor = "#0b66a3";
     popup.style.color = "white";
-    popup.style.padding = "25px 35px"; // Más grande
-    popup.style.borderRadius = "10px";
+    popup.style.padding = "30px 40px";
+    popup.style.borderRadius = "12px";
     popup.style.boxShadow = "0 6px 20px rgba(0,0,0,0.3)";
     popup.style.zIndex = "10000";
-    popup.style.fontSize = "1.2rem";
-    popup.style.maxWidth = "500px";
+    popup.style.fontSize = "1.3rem";
+    popup.style.maxWidth = "600px";
     popup.style.display = "flex";
     popup.style.justifyContent = "space-between";
     popup.style.alignItems = "center";
@@ -98,17 +90,13 @@ function mostrarPopupCharla() {
     cerrar.style.cursor = "pointer";
     cerrar.style.marginLeft = "15px";
 
-    cerrar.addEventListener("click", () => {
-        popup.remove();
-    });
-
+    cerrar.addEventListener("click", () => popup.remove());
     popup.appendChild(cerrar);
+
     document.body.appendChild(popup);
 
     // Desaparece automáticamente tras 10 segundos
-    setTimeout(() => {
-        popup.remove();
-    }, 10000);
+    setTimeout(() => popup.remove(), 10000);
 }
 
 window.addEventListener("load", mostrarPopupCharla);
@@ -120,29 +108,26 @@ function inicializarFormularioCharla() {
     const formulario = document.querySelector(".formulario-charla form");
     if (!formulario) return;
 
-    // Crear div para mostrar mensajes
     const mensaje = document.createElement("div");
     mensaje.style.marginTop = "10px";
     mensaje.style.fontWeight = "bold";
     formulario.appendChild(mensaje);
 
     formulario.addEventListener("submit", function(e) {
-        e.preventDefault(); // Evita recargar la página
+        e.preventDefault();
 
         const nombre = document.getElementById("nombre").value.trim();
         const email = document.getElementById("email").value.trim();
 
-        if (nombre === "" || email === "") {
+        if (!nombre || !email) {
             mensaje.style.color = "red";
             mensaje.textContent = "Por favor, rellena todos los campos.";
             return;
         }
 
-        // Mostrar mensaje de éxito
         mensaje.style.color = "green";
         mensaje.textContent = "Te has inscrito correctamente a la charla";
 
-        // Enviar datos a FormSubmit
         const tempForm = document.createElement("form");
         tempForm.action = formulario.action;
         tempForm.method = formulario.method;
@@ -159,7 +144,6 @@ function inicializarFormularioCharla() {
         emailInput.value = email;
         tempForm.appendChild(emailInput);
 
-        // Campos ocultos de FormSubmit
         const nextInput = document.createElement("input");
         nextInput.type = "hidden";
         nextInput.name = "_next";
@@ -208,12 +192,10 @@ function mostrarOfertasHoteles() {
     });
     html += "</ul>";
 
-    html += `
-        <p style="margin-top:10px; font-style:italic;">
+    html += `<p style="margin-top:10px; font-style:italic;">
         Ponte en contacto con nosotros para obtener el código del descuento 
         y úsalo al hacer tu reserva en la web oficial del hotel.
-        </p>
-    `;
+    </p>`;
 
     ofertasContainer.innerHTML = html;
     boton.textContent = "Ocultar ofertas";
@@ -221,9 +203,7 @@ function mostrarOfertasHoteles() {
 
 window.addEventListener("load", () => {
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
-    if (boton) {
-        boton.textContent = "Mostrar ofertas de hoteles hoy";
-    }
+    if (boton) boton.textContent = "Mostrar ofertas de hoteles hoy";
 });
 
 /* -------------------------
@@ -252,9 +232,7 @@ function validarFormularioContacto(event) {
     mensajeExito.textContent = "Mensaje enviado correctamente";
     mensajeExito.style.display = "block";
 
-    setTimeout(() => {
-        mensajeExito.style.display = "none";
-    }, 5000);
+    setTimeout(() => { mensajeExito.style.display = "none"; }, 5000);
 
     event.target.submit();
     return true;
