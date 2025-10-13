@@ -79,6 +79,72 @@ function mostrarEventosHoy() {
 }
 
 /* -------------------------
+   Formulario de inscripción en eventos.html
+--------------------------- */
+function inicializarFormularioCharla() {
+    const formulario = document.querySelector(".formulario-charla form");
+    if (!formulario) return;
+
+    // Crear div para mostrar mensajes
+    const mensaje = document.createElement("div");
+    mensaje.style.marginTop = "10px";
+    mensaje.style.fontWeight = "bold";
+    formulario.appendChild(mensaje);
+
+    formulario.addEventListener("submit", function(e) {
+        e.preventDefault(); // Evita recargar la página
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (nombre === "" || email === "") {
+            mensaje.style.color = "red";
+            mensaje.textContent = "Por favor, rellena todos los campos.";
+            return;
+        }
+
+        // Mostrar mensaje de éxito
+        mensaje.style.color = "green";
+        mensaje.textContent = "Te has inscrito correctamente a la charla";
+
+        // Enviar datos a FormSubmit
+        const tempForm = document.createElement("form");
+        tempForm.action = formulario.action;
+        tempForm.method = formulario.method;
+
+        const nombreInput = document.createElement("input");
+        nombreInput.type = "hidden";
+        nombreInput.name = "nombre";
+        nombreInput.value = nombre;
+        tempForm.appendChild(nombreInput);
+
+        const emailInput = document.createElement("input");
+        emailInput.type = "hidden";
+        emailInput.name = "email";
+        emailInput.value = email;
+        tempForm.appendChild(emailInput);
+
+        // Campos ocultos de FormSubmit
+        const nextInput = document.createElement("input");
+        nextInput.type = "hidden";
+        nextInput.name = "_next";
+        nextInput.value = "https://nereajulian.github.io/njulian-feriadeviajes/eventos.html";
+        tempForm.appendChild(nextInput);
+
+        const captchaInput = document.createElement("input");
+        captchaInput.type = "hidden";
+        captchaInput.name = "_captcha";
+        captchaInput.value = "false";
+        tempForm.appendChild(captchaInput);
+
+        document.body.appendChild(tempForm);
+        tempForm.submit();
+    });
+}
+
+window.addEventListener("load", inicializarFormularioCharla);
+
+/* -------------------------
    Funciones para hoteles.html
 --------------------------- */
 function mostrarOfertasHoteles() {
