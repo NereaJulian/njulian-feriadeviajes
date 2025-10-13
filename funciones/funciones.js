@@ -90,8 +90,10 @@ function mostrarOfertasHoteles() {
    Funciones para contacto.html
 --------------------------- */
 
-// Validar el formulario de contacto (todos los campos)
-function validarFormularioContacto() {
+// Validar el formulario de contacto y mostrar mensaje de éxito
+function validarFormularioContacto(event) {
+    event.preventDefault(); // Evita envío automático hasta validar
+
     const nombre = document.getElementById("nombre").value.trim();
     const email = document.getElementById("email").value.trim();
     const asunto = document.getElementById("asunto").value.trim();
@@ -109,6 +111,18 @@ function validarFormularioContacto() {
         alert("Por favor, introduce un correo electrónico válido.");
         return false;
     }
+
+    // Mostrar mensaje de éxito arriba del formulario
+    const mensajeExito = document.getElementById("mensajeExito");
+    mensajeExito.textContent = "Mensaje enviado correctamente";
+    mensajeExito.style.display = "block";
+
+    setTimeout(() => {
+        mensajeExito.style.display = "none";
+    }, 5000);
+
+    // Enviar el formulario tras la validación
+    event.target.submit();
 
     return true;
 }
