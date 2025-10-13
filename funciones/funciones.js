@@ -23,7 +23,6 @@ window.addEventListener("load", mostrarMensajeBienvenida);
 /* -------------------------
    Funciones para destinos.html
 --------------------------- */
-// Filtrar destinos por tipo: ciudad, montaña, playa, cerca-playa, todos
 function filtrarDestinos(tipo) {
     const destinos = document.querySelectorAll(".destino");
     destinos.forEach(destino => {
@@ -31,14 +30,12 @@ function filtrarDestinos(tipo) {
         destino.style.display = (tipo === "todos" || tipos.includes(tipo)) ? "list-item" : "none";
     });
 
-    // Resaltar botón activo
     const botones = document.querySelectorAll(".filtro button");
     botones.forEach(boton => {
         boton.classList.toggle("activo", boton.textContent.toLowerCase().replace(/\s/g, '-') === tipo);
     });
 }
 
-// Inicializar botones de filtro al cargar la página
 window.addEventListener("load", () => {
     const botones = document.querySelectorAll(".filtro button");
     botones.forEach(boton => {
@@ -53,10 +50,8 @@ window.addEventListener("load", () => {
    Pop-up de alerta para la charla en eventos.html
 --------------------------- */
 function mostrarPopupCharla() {
-    // Solo ejecutar en eventos.html
     if (!window.location.pathname.endsWith("eventos.html")) return;
 
-    // Crear el contenedor del pop-up
     const popup = document.createElement("div");
     popup.id = "popupCharla";
     popup.style.position = "fixed";
@@ -75,12 +70,10 @@ function mostrarPopupCharla() {
     popup.style.justifyContent = "space-between";
     popup.style.alignItems = "center";
 
-    // Mensaje
     const mensaje = document.createElement("span");
     mensaje.textContent = "¡Últimas plazas para la charla de guías turísticos, apúntate ya!";
     popup.appendChild(mensaje);
 
-    // Botón de cerrar
     const cerrar = document.createElement("button");
     cerrar.textContent = "×";
     cerrar.style.background = "transparent";
@@ -89,13 +82,11 @@ function mostrarPopupCharla() {
     cerrar.style.fontSize = "1.5rem";
     cerrar.style.cursor = "pointer";
     cerrar.style.marginLeft = "15px";
-
     cerrar.addEventListener("click", () => popup.remove());
     popup.appendChild(cerrar);
 
     document.body.appendChild(popup);
 
-    // Desaparece automáticamente tras 10 segundos
     setTimeout(() => popup.remove(), 10000);
 }
 
@@ -169,7 +160,6 @@ window.addEventListener("load", inicializarFormularioCharla);
 function mostrarOfertasHoteles() {
     const ofertasContainer = document.getElementById("ofertasHoteles");
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
-
     if (!ofertasContainer || !boton) return;
 
     if (ofertasContainer.innerHTML.trim() !== "") {
