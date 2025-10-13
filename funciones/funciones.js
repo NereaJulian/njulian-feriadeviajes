@@ -1,32 +1,38 @@
-// funciones.js
+/* =========================
+   funciones.js
+   Funciones JS para todas las páginas
+============================ */
 
 /* -------------------------
    Funciones para index.html
----------------------------*/
+--------------------------- */
 
-// Mostrar un mensaje de bienvenida
-function mostrarAlertaBienvenida() {
-    alert("¡Bienvenido a la Feria de Viajes!");
+// Mensaje de bienvenida automático (aparece y desaparece)
+function mostrarMensajeBienvenida() {
+    const mensajeDiv = document.getElementById("mensajeBienvenida");
+    if (!mensajeDiv) return;
+
+    mensajeDiv.textContent = "¡Bienvenida a la web de la Feria de Viajes!";
+    mensajeDiv.classList.add("show");
+
+    // Desaparece después de 3 segundos
+    setTimeout(() => {
+        mensajeDiv.classList.remove("show");
+    }, 3000);
 }
 
-// Cambiar el idioma del contenido
-function cambiarIdioma(idioma) {
-    if (idioma === "es") {
-        alert("Idioma cambiado a Español");
-    } else if (idioma === "en") {
-        alert("Idioma cambiado a Inglés");
-    }
-}
+// Ejecutar al cargar la página
+window.addEventListener("load", mostrarMensajeBienvenida);
 
 /* -------------------------
    Funciones para destinos.html
----------------------------*/
+--------------------------- */
 
 // Filtrar los destinos según el tipo (playa, montaña, ciudad)
 function filtrarDestinos(tipo) {
     const destinos = document.querySelectorAll(".destino");
     destinos.forEach(destino => {
-        if(tipo === "todos" || destino.dataset.tipo === tipo) {
+        if (tipo === "todos" || destino.dataset.tipo === tipo) {
             destino.style.display = "block";
         } else {
             destino.style.display = "none";
@@ -36,12 +42,12 @@ function filtrarDestinos(tipo) {
 
 /* -------------------------
    Funciones para eventos.html
----------------------------*/
+--------------------------- */
 
 // Mostrar los eventos del día actual
 function mostrarEventosHoy() {
     const eventosContainer = document.getElementById("eventosHoy");
-    if(!eventosContainer) return;
+    if (!eventosContainer) return;
 
     const eventos = [
         { hora: "10:00", descripcion: "Inauguración de la feria" },
@@ -49,48 +55,57 @@ function mostrarEventosHoy() {
         { hora: "17:00", descripcion: "Ofertas de hoteles" }
     ];
 
-    eventosContainer.innerHTML = ""; 
+    eventosContainer.innerHTML = "";
     eventos.forEach(evento => {
         const div = document.createElement("div");
-        div.textContent = evento.hora + " - " + evento.descripcion;
+        div.textContent = `${evento.hora} - ${evento.descripcion}`;
         eventosContainer.appendChild(div);
     });
 }
 
 /* -------------------------
    Funciones para hoteles.html
----------------------------*/
+--------------------------- */
 
 // Mostrar ofertas de hoteles
 function mostrarOfertasHoteles() {
     const ofertasContainer = document.getElementById("ofertasHoteles");
-    if(!ofertasContainer) return;
+    if (!ofertasContainer) return;
 
     const ofertas = [
         { hotel: "Hotel Anantara", descuento: "20%" },
-        { hotel: "Hotel The Peninsula Tokyo", descuento: "15%" },
-        { hotel: "Hotel The Plaza Hotel", descuento: "10%" }
+        { hotel: "The Peninsula Tokyo", descuento: "15%" },
+        { hotel: "The Plaza Hotel", descuento: "10%" }
     ];
 
     ofertasContainer.innerHTML = "";
     ofertas.forEach(oferta => {
         const div = document.createElement("div");
-        div.textContent = oferta.hotel + " - " + oferta.descuento + " de descuento";
+        div.textContent = `${oferta.hotel} - ${oferta.descuento} de descuento`;
         ofertasContainer.appendChild(div);
     });
 }
 
 /* -------------------------
    Funciones para contacto.html
----------------------------*/
+--------------------------- */
 
 // Validar el formulario de contacto
 function validarFormularioContacto() {
-    const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("email").value;
-    if(!nombre || !email) {
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (!nombre || !email) {
         alert("Por favor, complete todos los campos.");
         return false;
     }
+
+    // Validación simple de email
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regexEmail.test(email)) {
+        alert("Por favor, introduce un correo electrónico válido.");
+        return false;
+    }
+
     return true;
 }
