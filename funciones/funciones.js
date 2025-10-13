@@ -58,25 +58,56 @@ window.addEventListener("load", () => {
 });
 
 /* -------------------------
-   Funciones para eventos.html
+   Pop-up de alerta para la charla en eventos.html
 --------------------------- */
-function mostrarEventosHoy() {
-    const eventosContainer = document.getElementById("eventosHoy");
-    if (!eventosContainer) return;
+function mostrarPopupCharla() {
+    // Crear el contenedor del pop-up
+    const popup = document.createElement("div");
+    popup.id = "popupCharla";
+    popup.style.position = "fixed";
+    popup.style.bottom = "20px";
+    popup.style.right = "20px";
+    popup.style.backgroundColor = "#0b66a3";
+    popup.style.color = "white";
+    popup.style.padding = "15px 20px";
+    popup.style.borderRadius = "8px";
+    popup.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+    popup.style.zIndex = "10000";
+    popup.style.fontSize = "1rem";
+    popup.style.maxWidth = "300px";
+    popup.style.display = "flex";
+    popup.style.justifyContent = "space-between";
+    popup.style.alignItems = "center";
 
-    const eventos = [
-        { hora: "10:00", descripcion: "Inauguración de la feria" },
-        { hora: "12:00", descripcion: "Charla: Guías turísticos" },
-        { hora: "17:00", descripcion: "Ofertas de hoteles" }
-    ];
+    // Mensaje
+    const mensaje = document.createElement("span");
+    mensaje.textContent = "¡Últimas plazas para la charla de guías turísticos, apúntate ya!";
+    popup.appendChild(mensaje);
 
-    eventosContainer.innerHTML = "";
-    eventos.forEach(evento => {
-        const div = document.createElement("div");
-        div.textContent = `${evento.hora} - ${evento.descripcion}`;
-        eventosContainer.appendChild(div);
+    // Botón de cerrar
+    const cerrar = document.createElement("button");
+    cerrar.textContent = "×";
+    cerrar.style.background = "transparent";
+    cerrar.style.color = "white";
+    cerrar.style.border = "none";
+    cerrar.style.fontSize = "1.2rem";
+    cerrar.style.cursor = "pointer";
+    cerrar.style.marginLeft = "10px";
+
+    cerrar.addEventListener("click", () => {
+        popup.remove();
     });
+
+    popup.appendChild(cerrar);
+    document.body.appendChild(popup);
+
+    // Opcional: desaparecer automáticamente tras 10 segundos
+    setTimeout(() => {
+        popup.remove();
+    }, 10000);
 }
+
+window.addEventListener("load", mostrarPopupCharla);
 
 /* -------------------------
    Formulario de inscripción en eventos.html
