@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- ======================= -->
-  <!-- HEADER: cabecera con título y menú de navegación -->
+  <!-- HEADER -->
   <!-- ======================= -->
   <header class="site-header">
     <div class="container">
@@ -26,49 +26,57 @@
   </header>
 
   <!-- ======================= -->
-  <!-- MAIN: contenido principal de la página -->
+  <!-- MAIN -->
   <!-- ======================= -->
   <main class="container destinos-grid">
-    <!-- Columna izquierda: información de destinos por continente -->
+
+    <!-- Filtro de destinos -->
+    <section class="filtro">
+      <h3>Filtra por continente:</h3>
+      <button onclick="filtrarDestinos('todos')">Todos</button>
+      <button onclick="filtrarDestinos('europa')">Europa</button>
+      <button onclick="filtrarDestinos('asia')">Asia</button>
+      <button onclick="filtrarDestinos('america')">América</button>
+      <button onclick="filtrarDestinos('africa')">África</button>
+    </section>
+
+    <!-- Columna izquierda: información de destinos -->
     <section class="destinos-info">
       <h3>Destinos destacados en Europa</h3>
       <ol>
-        <li>París (Francia)</li>
-        <li>Barcelona (España)</li>
-        <li>Roma (Italia)</li>
+        <li class="destino" data-tipo="europa">París (Francia)</li>
+        <li class="destino" data-tipo="europa">Barcelona (España)</li>
+        <li class="destino" data-tipo="europa">Roma (Italia)</li>
       </ol>
 
       <h3>Destinos destacados en Asia</h3>
       <ol>
-        <li>Tokio (Japón)</li>
-        <li>Bangkok (Tailandia)</li>
-        <li>Bali (Indonesia)</li>
+        <li class="destino" data-tipo="asia">Tokio (Japón)</li>
+        <li class="destino" data-tipo="asia">Bangkok (Tailandia)</li>
+        <li class="destino" data-tipo="asia">Bali (Indonesia)</li>
       </ol>
 
       <h3>Destinos destacados en América</h3>
       <ol>
-        <li>Nueva York (Estados Unidos)</li>
-        <li>Los Ángeles (Estados Unidos)</li>
-        <li>Buenos Aires (Argentina)</li>
+        <li class="destino" data-tipo="america">Nueva York (Estados Unidos)</li>
+        <li class="destino" data-tipo="america">Los Ángeles (Estados Unidos)</li>
+        <li class="destino" data-tipo="america">Buenos Aires (Argentina)</li>
       </ol>
 
       <h3>Destinos destacados en África</h3>
       <ol>
-        <li>Marrakech (Marruecos)</li>
-        <li>El Cairo (Egipto)</li>
-        <li>Zanzíbar (Tanzania)</li>
+        <li class="destino" data-tipo="africa">Marrakech (Marruecos)</li>
+        <li class="destino" data-tipo="africa">El Cairo (Egipto)</li>
+        <li class="destino" data-tipo="africa">Zanzíbar (Tanzania)</li>
       </ol>
 
-      <!-- Enlace relacionado -->
       <p>
-        Para conocer más sobre información sobre las guías turísticas visita 
-        <a href="https://es.wikipedia.org/wiki/Gu%C3%ADa_de_viajes" target="_blank">
-          Guías de viaje en Wikipedia
-        </a>.
+        Para más información sobre guías turísticas visita
+        <a href="https://es.wikipedia.org/wiki/Gu%C3%ADa_de_viajes" target="_blank">Guías de viaje en Wikipedia</a>.
       </p>
     </section>
 
-    <!-- Columna derecha: galería de imágenes de los destinos -->
+    <!-- Columna derecha: galería de imágenes -->
     <aside class="galeria">
       <figure>
         <img src="imagenes/paris.jpg" alt="Vista de París, Francia">
@@ -119,15 +127,21 @@
         <figcaption>Zanzíbar</figcaption>
       </figure>
     </aside>
+
   </main>
 
   <!-- ======================= -->
-  <!-- FOOTER: pie de página con copyright -->
+  <!-- FOOTER -->
   <!-- ======================= -->
   <footer class="site-footer">
     <div class="container">
       <p>© Feria de Viajes</p>
     </div>
   </footer>
+
+  <!-- ======================= -->
+  <!-- Vinculación de JS -->
+  <!-- ======================= -->
+  <script src="funciones/funciones.js"></script>
 </body>
 </html>
