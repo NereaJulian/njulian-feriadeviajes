@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- ======================= -->
-  <!-- HEADER: cabecera con el título de la página y menú de navegación -->
+  <!-- HEADER -->
   <!-- ======================= -->
   <header class="site-header">
     <div class="container">
@@ -26,12 +26,10 @@
   </header>
 
   <!-- ======================= -->
-  <!-- MAIN: contenido principal de la página -->
-  <!-- Incluye un formulario de contacto para consultas -->
+  <!-- MAIN -->
   <!-- ======================= -->
   <main class="container">
 
-    <!-- Introducción y enlace relacionado -->
     <section>
       <h2>Ponte en contacto con nosotros sin compromiso</h2>
       <p>
@@ -42,8 +40,9 @@
       </p>
     </section>
 
-    <!-- Formulario de contacto -->
-    <form action="mailto:njulian@birt.eus" method="get" enctype="text/plain" class="form-grid">
+    <!-- Formulario de contacto con validación JS -->
+    <form action="mailto:njulian@birt.eus" method="get" enctype="text/plain" class="form-grid"
+          onsubmit="validarFormularioContacto(event)">
       <label for="nombre">Nombre:</label>
       <input id="nombre" name="Nombre" type="text" required />
 
@@ -64,12 +63,17 @@
   </main>
 
   <!-- ======================= -->
-  <!-- FOOTER: pie de página con los créditos del sitio -->
+  <!-- FOOTER -->
   <!-- ======================= -->
   <footer class="site-footer">
     <div class="container">
       <p>© Feria de Viajes</p>
     </div>
   </footer>
+
+  <!-- ======================= -->
+  <!-- Vinculación de JS -->
+  <!-- ======================= -->
+  <script src="funciones/funciones.js"></script>
 </body>
 </html>
