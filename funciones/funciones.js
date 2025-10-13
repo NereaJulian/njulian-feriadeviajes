@@ -73,7 +73,7 @@ function mostrarOfertasHoteles() {
     // Si ya hay contenido, lo borramos (ocultamos las ofertas)
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
-        boton.textContent = "Mostrar ofertas de hoteles";
+        boton.textContent = "Mostrar ofertas de hoteles hoy";
         return;
     }
 
