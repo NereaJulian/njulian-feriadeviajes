@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- ======================= -->
-  <!-- HEADER: cabecera y menú principal -->
+  <!-- HEADER -->
   <!-- ======================= -->
   <header class="site-header">
     <div class="container">
@@ -26,9 +26,10 @@
   </header>
 
   <!-- ======================= -->
-  <!-- MAIN: contenido principal -->
+  <!-- MAIN -->
   <!-- ======================= -->
   <main class="container">
+
     <!-- Enlace a la ubicación de la feria -->
     <p>
       La feria de viajes se celebrará en: 
@@ -36,6 +37,10 @@
         BIRTLH - CIFP DE APRENDIZAJES VIRTUALES Y DIGITALIZADOS, Araba Kalea, 41, Vitoria-Gasteiz
       </a>
     </p>
+
+    <!-- Botón para mostrar eventos del día -->
+    <button onclick="mostrarEventosHoy()">Mostrar eventos del día</button>
+    <div id="eventosHoy" style="margin-top:10px;"></div>
 
     <!-- Tabla de eventos -->
     <table>
@@ -68,17 +73,22 @@
   
         <button type="submit">Apuntarse</button>
       </form>
-
     </section>
+
   </main>
 
   <!-- ======================= -->
-  <!-- FOOTER: pie de página con copyright -->
+  <!-- FOOTER -->
   <!-- ======================= -->
   <footer class="site-footer">
     <div class="container">
       <p>© Feria de Viajes</p>
     </div>
   </footer>
+
+  <!-- ======================= -->
+  <!-- Vinculación de JS -->
+  <!-- ======================= -->
+  <script src="funciones/funciones.js"></script>
 </body>
 </html>
