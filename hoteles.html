@@ -8,7 +8,7 @@
 </head>
 <body>
   <!-- ======================= -->
-  <!-- HEADER: cabecera y menú principal -->
+  <!-- HEADER -->
   <!-- ======================= -->
   <header class="site-header">
     <div class="container">
@@ -26,52 +26,62 @@
   </header>
 
   <!-- ======================= -->
-  <!-- MAIN: contenido principal de la página -->
-  <!-- Lista de hoteles destacados por continente -->
+  <!-- MAIN -->
   <!-- ======================= -->
   <main class="container">
+
+    <h2>Hoteles destacados en los destinos de la feria</h2>
     
+    <!-- Botón para mostrar ofertas -->
+    <button onclick="mostrarOfertasHoteles()">Mostrar ofertas de hoteles</button>
+    <div id="ofertasHoteles" style="margin-top:10px;"></div>
+
     <!-- Europa -->
-    <h3>Hoteles destacados en los destinos de Europa</h3>
+    <h3>Europa</h3>
     <ul>
-      <li>París (Francia): <a href="https://www.fourseasons.com/paris/" target="_blank">Four Seasons Hotel George V</a></li>
-      <li>Barcelona (España): <a href="https://www.hotelartsbarcelona.com/" target="_blank">Hotel Arts Barcelona</a></li>
-      <li>Roma (Italia): <a href="https://www.anantara.com/es/palazzo-naiadi-rome?campid=8435708&utm_campaign=paid-search_generic_pmax_hotel&utm_source=google&utm_term=spanish-all&utm_medium=paid-search&gad_source=1&gad_campaignid=22609368623&gbraid=0AAAAAD5GqPBP2d6eysY_BcTGVjLDt-c6I&gclid=Cj0KCQjw9JLHBhC-ARIsAK4Phcq_WPzYFZMuVVWh9_47AYbebx4NUTUJ6OfYBfsjbE-1LCTjL2DCCKwaAuGEEALw_wcB" target="_blank">Anantara</a></li>
+      <li>París (Francia)</li>
+      <li>Barcelona (España)</li>
+      <li>Roma (Italia)</li>
     </ul>
 
     <!-- Asia -->
-    <h3>Hoteles destacados en los destinos de Asia</h3>
+    <h3>Asia</h3>
     <ul>
-      <li>Tokio (Japón): <a href="https://www.peninsula.com/en/tokyo" target="_blank">The Peninsula Tokyo</a></li>
-      <li>Bangkok (Tailandia): <a href="https://www.mandarinoriental.com/bangkok" target="_blank">Mandarin Oriental Bangkok</a></li>
-      <li>Bali (Indonesia): <a href="https://www.fourseasons.com/jimbaranbay/" target="_blank">Four Seasons Resort Bali at Jimbaran Bay</a></li>
+      <li>Tokio (Japón)</li>
+      <li>Bangkok (Tailandia)</li>
+      <li>Bali (Indonesia)</li>
     </ul>
 
     <!-- América -->
-    <h3>Hoteles destacados en los destinos de América</h3>
+    <h3>América</h3>
     <ul>
-      <li>Nueva York (EE. UU.): <a href="https://www.theplazany.com/" target="_blank">The Plaza Hotel</a></li>
-      <li>Los Ángeles (EE. UU.): <a href="https://www.fourseasons.com/beverlywilshire/?utm_source=google&utm_medium=paidsearch&utm_campaign=saa-bev-hre-low-brd_hotel_low_sch_rsa_en_na-na&utm_content=na-na&utm_term=na&utm_source=google&utm_medium=paidsearch&utm_campaign=acr-bev-hre-low-brd-sch-xx-na-na&utm_content=na-71700000120018472-58700008785406046-0&utm_term=brand&gclsrc=aw.ds&gad_source=1&gad_campaignid=16836031&gbraid=0AAAAAD9hWRs4jcuXBgCCBAR0Cxarl0AZb&gclid=Cj0KCQjw9JLHBhC-ARIsAK4Phcok_hisbtn1Jl1ul-eIXkxiXfhdjRUsn0GQcLSKUhCuUTv_9rXW-tYaAqxdEALw_wcB" target="_blank">Beverly Wilshire, Beverly Hills</a></li>
-      <li>Buenos Aires (Argentina): <a href="https://www.fourseasons.com/buenosaires/" target="_blank">Four Seasons Hotel Buenos Aires</a></li>
+      <li>Nueva York (EE. UU.)</li>
+      <li>Los Ángeles (EE. UU.)</li>
+      <li>Buenos Aires (Argentina)</li>
     </ul>
 
     <!-- África -->
-    <h3>Hoteles destacados en los destinos de África</h3>
+    <h3>África</h3>
     <ul>
-      <li>Marrakech (Marruecos): <a href="https://mamounia.com/es/" target="_blank">La Mamounia</a></li>
-      <li>El Cairo (Egipto): <a href="https://www.fourseasons.com/cairo/" target="_blank">Four Seasons Hotel Cairo at Nile Plaza</a></li>
-      <li>Zanzíbar (Tanzania): <a href="https://the-white-pearl-villas.hotels-zanzibar.net/en/" target="_blank">Jambiani Pearl Villas Zanzibar</a></li>
+      <li>Marrakech (Marruecos)</li>
+      <li>El Cairo (Egipto)</li>
+      <li>Zanzíbar (Tanzania)</li>
     </ul>
 
   </main>
 
   <!-- ======================= -->
-  <!-- FOOTER: pie de página con copyright -->
+  <!-- FOOTER -->
   <!-- ======================= -->
   <footer class="site-footer">
     <div class="container">
       <p>© Feria de Viajes</p>
     </div>
   </footer>
+
+  <!-- ======================= -->
+  <!-- Vinculación de JS -->
+  <!-- ======================= -->
+  <script src="funciones/funciones.js"></script>
 </body>
 </html>
