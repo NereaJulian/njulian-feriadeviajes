@@ -21,7 +21,6 @@ function mostrarMensajeBienvenida() {
     }, 8000);
 }
 
-// Ejecutar al cargar la página
 window.addEventListener("load", mostrarMensajeBienvenida);
 
 /* -------------------------
@@ -44,7 +43,6 @@ function filtrarDestinos(tipo) {
    Funciones para eventos.html
 --------------------------- */
 
-// Mostrar los eventos del día actual
 function mostrarEventosHoy() {
     const eventosContainer = document.getElementById("eventosHoy");
     if (!eventosContainer) return;
@@ -67,14 +65,15 @@ function mostrarEventosHoy() {
    Funciones para hoteles.html
 --------------------------- */
 
-// Mostrar / ocultar ofertas de hoteles
 function mostrarOfertasHoteles() {
     const ofertasContainer = document.getElementById("ofertasHoteles");
-    if (!ofertasContainer) return;
+    const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
+    if (!ofertasContainer || !boton) return;
 
-    // Si ya hay contenido, lo vaciamos (ocultamos las ofertas)
+    // Si ya hay contenido, lo borramos (ocultamos las ofertas)
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
+        boton.textContent = "Mostrar ofertas de hoteles";
         return;
     }
 
@@ -102,35 +101,32 @@ function mostrarOfertasHoteles() {
     `;
 
     ofertasContainer.innerHTML = html;
+    boton.textContent = "Ocultar ofertas";
 }
 
 /* -------------------------
    Funciones para contacto.html
 --------------------------- */
 
-// Validar el formulario de contacto y mostrar mensaje de éxito
 function validarFormularioContacto(event) {
-    event.preventDefault(); // Evita envío automático hasta validar
+    event.preventDefault();
 
     const nombre = document.getElementById("nombre").value.trim();
     const email = document.getElementById("email").value.trim();
     const asunto = document.getElementById("asunto").value.trim();
     const mensaje = document.getElementById("mensaje").value.trim();
 
-    // Comprobar que ningún campo esté vacío
     if (!nombre || !email || !asunto || !mensaje) {
         alert("Por favor, complete todos los campos del formulario.");
         return false;
     }
 
-    // Validación simple de email
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regexEmail.test(email)) {
         alert("Por favor, introduce un correo electrónico válido.");
         return false;
     }
 
-    // Mostrar mensaje de éxito arriba del formulario
     const mensajeExito = document.getElementById("mensajeExito");
     mensajeExito.textContent = "Mensaje enviado correctamente";
     mensajeExito.style.display = "block";
@@ -139,8 +135,6 @@ function validarFormularioContacto(event) {
         mensajeExito.style.display = "none";
     }, 5000);
 
-    // Enviar el formulario tras la validación
     event.target.submit();
-
     return true;
 }
