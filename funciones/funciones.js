@@ -66,7 +66,7 @@ function mostrarOfertasHoteles() {
     // Alternar contenido
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
-        boton.textContent = "Mostrar ofertas de hoteles hoy";
+        boton.textContent = "Mostrar ofertas de hoteles";
         return;
     }
 
