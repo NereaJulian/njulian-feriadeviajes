@@ -23,16 +23,27 @@ window.addEventListener("load", mostrarMensajeBienvenida);
 /* -------------------------
    Funciones para destinos.html
 --------------------------- */
+// Filtrar destinos por tipo: ciudad, montaña, playa, todos
 function filtrarDestinos(tipo) {
     const destinos = document.querySelectorAll(".destino");
     destinos.forEach(destino => {
         if (tipo === "todos" || destino.dataset.tipo === tipo) {
-            destino.style.display = "block";
+            destino.style.display = "list-item";
         } else {
             destino.style.display = "none";
         }
     });
 }
+
+// Inicializar botones de filtro al cargar la página
+window.addEventListener("load", () => {
+    const filtros = document.querySelectorAll(".filtro-destino button");
+    filtros.forEach(boton => {
+        boton.addEventListener("click", () => {
+            filtrarDestinos(boton.dataset.tipo);
+        });
+    });
+});
 
 /* -------------------------
    Funciones para eventos.html
@@ -63,14 +74,12 @@ function mostrarOfertasHoteles() {
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
     if (!ofertasContainer || !boton) return;
 
-    // Alternar contenido
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
-        boton.textContent = "Mostrar ofertas de hoteles";
+        boton.textContent = "Mostrar ofertas de hoteles hoy";
         return;
     }
 
-    // Ofertas con enlaces a la web oficial
     const ofertas = [
         { hotel: "Hotel Anantara", descuento: "20%", url: "https://www.anantara.com/en/siam-bangkok/offers/10-10-exclusive" },
         { hotel: "The Peninsula Tokyo", descuento: "15%", url: "https://www.lartisien.com/hotel/the-peninsula-tokyo" },
@@ -97,7 +106,7 @@ function mostrarOfertasHoteles() {
     boton.textContent = "Ocultar ofertas";
 }
 
-// Inicializar el texto del botón al cargar la página
+// Inicializar texto del botón de hoteles
 window.addEventListener("load", () => {
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
     if (boton) {
