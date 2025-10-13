@@ -23,27 +23,18 @@ window.addEventListener("load", mostrarMensajeBienvenida);
 /* -------------------------
    Funciones para destinos.html
 --------------------------- */
-// Filtrar destinos por tipo: ciudad, montaña, playa, todos
+// Filtrar destinos por tipo: ciudad, montaña, playa, cerca-playa, todos
 function filtrarDestinos(tipo) {
     const destinos = document.querySelectorAll(".destino");
     destinos.forEach(destino => {
-        if (tipo === "todos" || destino.dataset.tipo === tipo) {
+        const tipos = destino.dataset.tipo.split(" ");
+        if (tipo === "todos" || tipos.includes(tipo)) {
             destino.style.display = "list-item";
         } else {
             destino.style.display = "none";
         }
     });
 }
-
-// Inicializar botones de filtro al cargar la página
-window.addEventListener("load", () => {
-    const filtros = document.querySelectorAll(".filtro-destino button");
-    filtros.forEach(boton => {
-        boton.addEventListener("click", () => {
-            filtrarDestinos(boton.dataset.tipo);
-        });
-    });
-});
 
 /* -------------------------
    Funciones para eventos.html
@@ -81,12 +72,11 @@ function mostrarOfertasHoteles() {
     }
 
     const ofertas = [
-        { hotel: "Hotel Anantara", descuento: "20%", url: "https://www.anantara.com/en/siam-bangkok/offers/10-10-exclusive" },
-        { hotel: "The Peninsula Tokyo", descuento: "15%", url: "https://www.lartisien.com/hotel/the-peninsula-tokyo" },
+        { hotel: "Anantara Siam Bangkok Hotel", descuento: "20%", url: "https://www.anantara.com/en/siam-bangkok/offers/10-10-exclusive" },
+        { hotel: "The Peninsula Tokyo", descuento: "15%", url: "https://lartisien.com/hotel/the-peninsula-tokyo" },
         { hotel: "The Plaza Hotel", descuento: "10%", url: "https://www.theplazany.com/" },
-        { hotel: "Hotel W Barcelona", descuento: "12%", url: "https://www.marriott.com/en-us/hotels/bcnwh-w-barcelona/overview/" },
-        { hotel: "Roma Antica Suites", descuento: "18%", url: "https://www.radissonhotels.com/es-es/hoteles/radisson-collection-roma-antica" },
-        { hotel: "Ritz Paris", descuento: "22%", url: "https://www.ritzparis.com/" }
+        { hotel: "Radisson Collection Hotel, Roma Antica", descuento: "18%", url: "https://www.radissonhotels.com/es-es/hoteles/radisson-collection-roma-antica" },
+        { hotel: "The Nile Ritz-Carlton, El Cairo", descuento: "22%", url: "https://www.ritzcarlton.com/en/hotels/CAIRZ-the-nile-ritz-carlton-cairo/overview/" },
     ];
 
     let html = "<ul>";
@@ -98,7 +88,7 @@ function mostrarOfertasHoteles() {
     html += `
         <p style="margin-top:10px; font-style:italic;">
         Ponte en contacto con nosotros para obtener el código del descuento 
-        y introdúcelo en la web oficial del hotel a la hora de hacer la reserva.
+        y úsalo al hacer tu reserva en la web oficial del hotel.
         </p>
     `;
 
@@ -106,7 +96,6 @@ function mostrarOfertasHoteles() {
     boton.textContent = "Ocultar ofertas";
 }
 
-// Inicializar texto del botón de hoteles
 window.addEventListener("load", () => {
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
     if (boton) {
