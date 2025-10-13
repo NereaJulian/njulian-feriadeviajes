@@ -1,4 +1,4 @@
-/* =========================
+/* ========================= 
    funciones.js
    Funciones JS para todas las páginas
 ============================ */
@@ -67,23 +67,41 @@ function mostrarEventosHoy() {
    Funciones para hoteles.html
 --------------------------- */
 
-// Mostrar ofertas de hoteles
+// Mostrar / ocultar ofertas de hoteles
 function mostrarOfertasHoteles() {
     const ofertasContainer = document.getElementById("ofertasHoteles");
     if (!ofertasContainer) return;
 
+    // Si ya hay contenido, lo vaciamos (ocultamos las ofertas)
+    if (ofertasContainer.innerHTML.trim() !== "") {
+        ofertasContainer.innerHTML = "";
+        return;
+    }
+
+    // Si no hay contenido, mostramos las ofertas
     const ofertas = [
         { hotel: "Hotel Anantara", descuento: "20%" },
         { hotel: "The Peninsula Tokyo", descuento: "15%" },
-        { hotel: "The Plaza Hotel", descuento: "10%" }
+        { hotel: "The Plaza Hotel", descuento: "10%" },
+        { hotel: "Hotel Barcelona Centro", descuento: "12%" },
+        { hotel: "Roma Antica Suites", descuento: "18%" },
+        { hotel: "Bangkok Riverside", descuento: "22%" }
     ];
 
-    ofertasContainer.innerHTML = "";
+    let html = "<ul>";
     ofertas.forEach(oferta => {
-        const div = document.createElement("div");
-        div.textContent = `${oferta.hotel} - ${oferta.descuento} de descuento`;
-        ofertasContainer.appendChild(div);
+        html += `<li>${oferta.hotel} - ${oferta.descuento} de descuento</li>`;
     });
+    html += "</ul>";
+
+    html += `
+        <p style="margin-top:10px; font-style:italic;">
+        Ponte en contacto con nosotros para obtener el código del descuento 
+        y introdúcelo en la web oficial del hotel a la hora de hacer la reserva.
+        </p>
+    `;
+
+    ofertasContainer.innerHTML = html;
 }
 
 /* -------------------------
