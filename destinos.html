@@ -32,42 +32,41 @@
 
     <!-- Filtro de destinos -->
     <section class="filtro">
-      <h3>Filtra por continente:</h3>
+      <h3>Filtra por tipo:</h3>
       <button onclick="filtrarDestinos('todos')">Todos</button>
-      <button onclick="filtrarDestinos('europa')">Europa</button>
-      <button onclick="filtrarDestinos('asia')">Asia</button>
-      <button onclick="filtrarDestinos('america')">América</button>
-      <button onclick="filtrarDestinos('africa')">África</button>
+      <button onclick="filtrarDestinos('ciudad')">Ciudad</button>
+      <button onclick="filtrarDestinos('montaña')">Montaña</button>
+      <button onclick="filtrarDestinos('playa')">Playa</button>
     </section>
 
     <!-- Columna izquierda: información de destinos -->
     <section class="destinos-info">
       <h3>Destinos destacados en Europa</h3>
       <ol>
-        <li class="destino" data-tipo="europa">París (Francia)</li>
-        <li class="destino" data-tipo="europa">Barcelona (España)</li>
-        <li class="destino" data-tipo="europa">Roma (Italia)</li>
+        <li class="destino" data-tipo="ciudad">París (Francia)</li>
+        <li class="destino" data-tipo="ciudad">Barcelona (España)</li>
+        <li class="destino" data-tipo="ciudad">Roma (Italia)</li>
       </ol>
 
       <h3>Destinos destacados en Asia</h3>
       <ol>
-        <li class="destino" data-tipo="asia">Tokio (Japón)</li>
-        <li class="destino" data-tipo="asia">Bangkok (Tailandia)</li>
-        <li class="destino" data-tipo="asia">Bali (Indonesia)</li>
+        <li class="destino" data-tipo="ciudad">Tokio (Japón)</li>
+        <li class="destino" data-tipo="playa">Bangkok (Tailandia)</li>
+        <li class="destino" data-tipo="montaña playa">Bali (Indonesia)</li>
       </ol>
 
       <h3>Destinos destacados en América</h3>
       <ol>
-        <li class="destino" data-tipo="america">Nueva York (Estados Unidos)</li>
-        <li class="destino" data-tipo="america">Los Ángeles (Estados Unidos)</li>
-        <li class="destino" data-tipo="america">Buenos Aires (Argentina)</li>
+        <li class="destino" data-tipo="ciudad">Nueva York (Estados Unidos)</li>
+        <li class="destino" data-tipo="ciudad">Los Ángeles (Estados Unidos)</li>
+        <li class="destino" data-tipo="ciudad">Buenos Aires (Argentina)</li>
       </ol>
 
       <h3>Destinos destacados en África</h3>
       <ol>
-        <li class="destino" data-tipo="africa">Marrakech (Marruecos)</li>
-        <li class="destino" data-tipo="africa">El Cairo (Egipto)</li>
-        <li class="destino" data-tipo="africa">Zanzíbar (Tanzania)</li>
+        <li class="destino" data-tipo="playa">Zanzíbar (Tanzania)</li>
+        <li class="destino" data-tipo="playa">Marrakech (Marruecos)</li>
+        <li class="destino" data-tipo="playa">El Cairo (Egipto)</li>
       </ol>
 
       <p>
@@ -143,5 +142,14 @@
   <!-- Vinculación de JS -->
   <!-- ======================= -->
   <script src="funciones/funciones.js"></script>
+  <script>
+    // Inicializar filtros para destinos
+    document.querySelectorAll(".filtro button").forEach(boton => {
+      boton.addEventListener("click", () => {
+        const tipo = boton.dataset.tipo || boton.textContent.toLowerCase();
+        filtrarDestinos(tipo);
+      });
+    });
+  </script>
 </body>
 </html>
