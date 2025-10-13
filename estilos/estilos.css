@@ -1,10 +1,8 @@
-/* estilos/estilos.css */
-
 /* ======================= */
 /* RESET Y ESTILOS BÁSICOS */
 /* ======================= */
 * { box-sizing: border-box; }
-body { font-family: Arial,Helvetica,sans-serif; margin:0; line-height:1.4; color:#222; }
+body { font-family: Arial, Helvetica, sans-serif; margin:0; line-height:1.4; color:#222; }
 .container { width:90%; max-width:1200px; margin:0 auto; padding:1rem; }
 
 /* ======================= */
@@ -17,12 +15,28 @@ body { font-family: Arial,Helvetica,sans-serif; margin:0; line-height:1.4; color
 .menu li a:hover { background:rgba(255,255,255,0.12); border-radius:6px; }
 
 /* ======================= */
+/* HERO / BANNER INDEX */
+/* ======================= */
+.hero {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ======================= */
 /* TIPOGRAFÍA Y ENLACES */
 /* ======================= */
 .lead { font-size:1.05rem; margin-top:0; }
 
-a:link,
-a:visited { color: #0000EE; text-decoration: none; }
+a:link, a:visited { color: #0000EE; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ======================= */
@@ -52,7 +66,7 @@ button[type="reset"] { background:#777; }
 /* ======================= */
 .destinos-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr 220px; /* izquierda: destinos, centro: galería, derecha: filtros fijo */
+  grid-template-columns: 1fr 2fr 220px; /* izquierda: info, centro: galería, derecha: filtros */
   gap: 1rem;
   align-items: start;
   position: relative;
@@ -89,9 +103,9 @@ button[type="reset"] { background:#777; }
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  position: fixed;
+  position: sticky; /* sticky para que quede fijo al scroll */
   top: 1rem;
-  right: 2%;
+  right: 0;
   width: 200px;
 }
 .filtro h3 { margin-bottom: 0.5rem; }
@@ -138,4 +152,5 @@ button[type="reset"] { background:#777; }
   .destinos-grid { grid-template-columns: 1fr; }
   .galeria { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
   .filtro { flex-direction: row; margin-bottom: 1rem; position: relative; width: auto; }
+  .hero { max-height: 200px; } /* Banner más pequeño en móvil */
 }
