@@ -63,12 +63,6 @@ function mostrarOfertasHoteles() {
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
     if (!ofertasContainer || !boton) return;
 
-    // Inicializar el texto del botón si no se ha hecho
-    if (!boton.dataset.inicializado) {
-        boton.textContent = "Mostrar ofertas de hoteles hoy";
-        boton.dataset.inicializado = "true";
-    }
-
     // Alternar contenido
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
@@ -102,6 +96,14 @@ function mostrarOfertasHoteles() {
     ofertasContainer.innerHTML = html;
     boton.textContent = "Ocultar ofertas";
 }
+
+// Inicializar el texto del botón al cargar la página
+window.addEventListener("load", () => {
+    const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
+    if (boton) {
+        boton.textContent = "Mostrar ofertas de hoteles hoy";
+    }
+});
 
 /* -------------------------
    Funciones para contacto.html
