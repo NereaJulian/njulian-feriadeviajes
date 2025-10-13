@@ -5,7 +5,7 @@
 /* ======================= */
 * { box-sizing: border-box; }
 body { font-family: Arial,Helvetica,sans-serif; margin:0; line-height:1.4; color:#222; }
-.container { width:90%; max-width:1000px; margin:0 auto; padding:1rem; }
+.container { width:90%; max-width:1200px; margin:0 auto; padding:1rem; }
 
 /* ======================= */
 /* HEADER Y MENÚ */
@@ -17,24 +17,13 @@ body { font-family: Arial,Helvetica,sans-serif; margin:0; line-height:1.4; color
 .menu li a:hover { background:rgba(255,255,255,0.12); border-radius:6px; }
 
 /* ======================= */
-/* HERO / BANNER PRINCIPAL */
-/* ======================= */
-.hero img { width:100%; height:auto; display:block; border-radius:6px; margin-bottom:0.6rem; }
-
-/* ======================= */
 /* TIPOGRAFÍA Y ENLACES */
 /* ======================= */
 .lead { font-size:1.05rem; margin-top:0; }
 
 a:link,
-a:visited {
-  color: #0000EE; /* azul clásico de los enlaces */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+a:visited { color: #0000EE; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* ======================= */
 /* TABLAS */
@@ -54,53 +43,62 @@ table th, table td { border:1px solid #ddd; padding:0.5rem; text-align:left; }
 .form-grid label { font-weight:600; }
 .form-grid input, .form-grid textarea { width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px; }
 .form-grid .fullwidth { grid-column: 1 / -1; display:flex; gap:0.6rem; }
+
 button { padding:0.6rem 1rem; border:none; border-radius:6px; cursor:pointer; background:#0b66a3; color:white; }
 button[type="reset"] { background:#777; }
 
 /* ======================= */
-/* MEDIA QUERIES */
-/* ======================= */
-@media (max-width:700px) {
-  .menu { flex-wrap:wrap; }
-  .form-grid { grid-template-columns: 1fr; }
-  .site-header h1 { font-size:1.25rem; }
-  .destinos-grid { grid-template-columns: 1fr; }
-}
-
-/* ======================= */
-/* DESTINOS / GALERÍA */
+/* DESTINOS / GALERÍA / FILTROS */
 /* ======================= */
 .destinos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr; /* izquierda: destinos, centro: galería, derecha: filtros */
   gap: 1rem;
   align-items: start;
 }
 
+/* Columna izquierda: Destinos */
+.destinos-info h3 { margin-top: 0.5rem; color:#0b66a3; }
+.destinos-info ol { padding-left: 1.2rem; }
+.destinos-info li { margin-bottom: 0.4rem; }
+
+/* Columna central: Galería */
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.8rem;
 }
 
-.galeria figure {
-  margin: 0;
-  text-align: center;
-}
-
+.galeria figure { margin: 0; text-align: center; }
 .galeria img {
   width: 100%;
   height: 120px;
-  object-fit: cover; /* evita deformaciones */
+  object-fit: cover;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
 .galeria figcaption {
   margin-top: 0.3rem;
   font-size: 0.9rem;
   font-weight: bold;
   color: #0b66a3;
+}
+
+/* Columna derecha: Filtros */
+.filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.filtro h3 { margin-bottom: 0.5rem; }
+.filtro button { width: 100%; }
+
+/* Botón activo */
+.filtro button.activo {
+  background-color: #005a8d;
 }
 
 /* ======================= */
@@ -125,4 +123,19 @@ button[type="reset"] { background:#777; }
 .mensaje-bienvenida.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ======================= */
+/* MEDIA QUERIES RESPONSIVOS */
+/* ======================= */
+@media (max-width:1024px) {
+  .destinos-grid { grid-template-columns: 1fr 2fr; }
+  .filtro { flex-direction: row; gap: 0.5rem; position: relative; top: auto; }
+}
+
+@media (max-width:700px) {
+  .menu { flex-wrap: wrap; }
+  .destinos-grid { grid-template-columns: 1fr; }
+  .galeria { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .filtro { flex-direction: row; margin-bottom: 1rem; }
 }
