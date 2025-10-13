@@ -30,6 +30,11 @@
   <!-- ======================= -->
   <main class="container">
 
+    <!-- Mensaje de éxito temporal -->
+    <div id="mensajeExito" class="mensaje-exito" 
+         style="display:none; text-align:center; padding:10px; background:#0b66a3; color:white; border-radius:6px; margin-bottom:1rem;">
+    </div>
+
     <section>
       <h2>Ponte en contacto con nosotros sin compromiso</h2>
       <p>
@@ -40,9 +45,9 @@
       </p>
     </section>
 
-    <!-- Formulario de contacto con validación JS y envío por Formsubmit -->
+    <!-- Formulario de contacto con validación JS y envío por FormSubmit -->
     <form action="https://formsubmit.co/nereajulianl@gmail.com" method="POST" class="form-grid"
-          onsubmit="return validarFormularioContacto()">
+          onsubmit="return validarFormularioContacto(event)">
       <input type="hidden" name="_next" value="https://nereajulian.github.io/njulian-feriadeviajes/contacto.html">
       <input type="hidden" name="_captcha" value="false">
 
