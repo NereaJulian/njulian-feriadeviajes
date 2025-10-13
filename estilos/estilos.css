@@ -1,36 +1,31 @@
 /* estilos/estilos.css */
+
+/* ======================= */
+/* RESET Y ESTILOS BÁSICOS */
+/* ======================= */
 * { box-sizing: border-box; }
 body { font-family: Arial,Helvetica,sans-serif; margin:0; line-height:1.4; color:#222; }
 .container { width:90%; max-width:1000px; margin:0 auto; padding:1rem; }
 
+/* ======================= */
+/* HEADER Y MENÚ */
+/* ======================= */
 .site-header { background:#0b66a3; color:white; padding:0.8rem 0; }
 .site-header h1 { margin:0 0 0.5rem 0; font-size:1.6rem; }
 .menu { list-style:none; margin:0; padding:0; display:flex; gap:0.6rem; }
 .menu li a { color:white; text-decoration:none; padding:0.4rem 0.6rem; display:inline-block; }
 .menu li a:hover { background:rgba(255,255,255,0.12); border-radius:6px; }
 
+/* ======================= */
+/* HERO / BANNER PRINCIPAL */
+/* ======================= */
 .hero img { width:100%; height:auto; display:block; border-radius:6px; margin-bottom:0.6rem; }
+
+/* ======================= */
+/* TIPOGRAFÍA Y ENLACES */
+/* ======================= */
 .lead { font-size:1.05rem; margin-top:0; }
 
-table { width:100%; border-collapse:collapse; margin:0.6rem 0; }
-table th, table td { border:1px solid #ddd; padding:0.5rem; text-align:left; }
-
-.site-footer { background:#f0f0f0; padding:1rem 0; margin-top:1.5rem; text-align:center; }
-
-.form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:0.6rem; align-items:start; }
-.form-grid label { font-weight:600; }
-.form-grid input, .form-grid textarea { width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px; }
-.form-grid .fullwidth { grid-column: 1 / -1; display:flex; gap:0.6rem; }
-button { padding:0.6rem 1rem; border:none; border-radius:6px; cursor:pointer; background:#0b66a3; color:white; }
-button[type="reset"] { background:#777; }
-
-@media (max-width:700px) {
-  .menu { flex-wrap:wrap; }
-  .form-grid { grid-template-columns: 1fr; }
-  .site-header h1 { font-size:1.25rem; }
-}
-
-/* === Enlaces azules que no cambian de color === */
 a:link,
 a:visited {
   color: #0000EE; /* azul clásico de los enlaces */
@@ -41,7 +36,40 @@ a:hover {
   text-decoration: underline;
 }
 
-/* === Distribución de la página de destinos === */
+/* ======================= */
+/* TABLAS */
+/* ======================= */
+table { width:100%; border-collapse:collapse; margin:0.6rem 0; }
+table th, table td { border:1px solid #ddd; padding:0.5rem; text-align:left; }
+
+/* ======================= */
+/* FOOTER */
+/* ======================= */
+.site-footer { background:#f0f0f0; padding:1rem 0; margin-top:1.5rem; text-align:center; }
+
+/* ======================= */
+/* FORMULARIOS */
+/* ======================= */
+.form-grid { display:grid; grid-template-columns: 1fr 1fr; gap:0.6rem; align-items:start; }
+.form-grid label { font-weight:600; }
+.form-grid input, .form-grid textarea { width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px; }
+.form-grid .fullwidth { grid-column: 1 / -1; display:flex; gap:0.6rem; }
+button { padding:0.6rem 1rem; border:none; border-radius:6px; cursor:pointer; background:#0b66a3; color:white; }
+button[type="reset"] { background:#777; }
+
+/* ======================= */
+/* MEDIA QUERIES */
+/* ======================= */
+@media (max-width:700px) {
+  .menu { flex-wrap:wrap; }
+  .form-grid { grid-template-columns: 1fr; }
+  .site-header h1 { font-size:1.25rem; }
+  .destinos-grid { grid-template-columns: 1fr; }
+}
+
+/* ======================= */
+/* DESTINOS / GALERÍA */
+/* ======================= */
 .destinos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -49,7 +77,6 @@ a:hover {
   align-items: start;
 }
 
-/* === Galería === */
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -76,8 +103,26 @@ a:hover {
   color: #0b66a3;
 }
 
-@media (max-width:700px) {
-  .destinos-grid {
-    grid-template-columns: 1fr;
-  }
+/* ======================= */
+/* MENSAJE DE BIENVENIDA */
+/* ======================= */
+.mensaje-bienvenida {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0077cc;
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 1.2rem;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.mensaje-bienvenida.show {
+  opacity: 1;
+  transform: translateY(0);
 }
