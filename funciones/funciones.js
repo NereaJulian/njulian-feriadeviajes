@@ -61,20 +61,24 @@ window.addEventListener("load", () => {
    Pop-up de alerta para la charla en eventos.html
 --------------------------- */
 function mostrarPopupCharla() {
+    // Solo ejecutar en eventos.html
+    if (!window.location.pathname.endsWith("eventos.html")) return;
+
     // Crear el contenedor del pop-up
     const popup = document.createElement("div");
     popup.id = "popupCharla";
     popup.style.position = "fixed";
-    popup.style.bottom = "20px";
-    popup.style.right = "20px";
+    popup.style.top = "20px"; // Arriba
+    popup.style.left = "50%";
+    popup.style.transform = "translateX(-50%)"; // Centrado horizontal
     popup.style.backgroundColor = "#0b66a3";
     popup.style.color = "white";
-    popup.style.padding = "15px 20px";
-    popup.style.borderRadius = "8px";
-    popup.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+    popup.style.padding = "25px 35px"; // Más grande
+    popup.style.borderRadius = "10px";
+    popup.style.boxShadow = "0 6px 20px rgba(0,0,0,0.3)";
     popup.style.zIndex = "10000";
-    popup.style.fontSize = "1rem";
-    popup.style.maxWidth = "300px";
+    popup.style.fontSize = "1.2rem";
+    popup.style.maxWidth = "500px";
     popup.style.display = "flex";
     popup.style.justifyContent = "space-between";
     popup.style.alignItems = "center";
@@ -90,9 +94,9 @@ function mostrarPopupCharla() {
     cerrar.style.background = "transparent";
     cerrar.style.color = "white";
     cerrar.style.border = "none";
-    cerrar.style.fontSize = "1.2rem";
+    cerrar.style.fontSize = "1.5rem";
     cerrar.style.cursor = "pointer";
-    cerrar.style.marginLeft = "10px";
+    cerrar.style.marginLeft = "15px";
 
     cerrar.addEventListener("click", () => {
         popup.remove();
@@ -101,7 +105,7 @@ function mostrarPopupCharla() {
     popup.appendChild(cerrar);
     document.body.appendChild(popup);
 
-    // Opcional: desaparecer automáticamente tras 10 segundos
+    // Desaparece automáticamente tras 10 segundos
     setTimeout(() => {
         popup.remove();
     }, 10000);
@@ -181,6 +185,7 @@ window.addEventListener("load", inicializarFormularioCharla);
 function mostrarOfertasHoteles() {
     const ofertasContainer = document.getElementById("ofertasHoteles");
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
+
     if (!ofertasContainer || !boton) return;
 
     if (ofertasContainer.innerHTML.trim() !== "") {
