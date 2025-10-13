@@ -15,7 +15,7 @@ function mostrarMensajeBienvenida() {
     mensajeDiv.textContent = "¡Bienvenida a la web de la Feria de Viajes!";
     mensajeDiv.classList.add("show");
 
-    // Desaparece después de 3 segundos
+    // Desaparece después de 8 segundos
     setTimeout(() => {
         mensajeDiv.classList.remove("show");
     }, 8000);
@@ -90,13 +90,16 @@ function mostrarOfertasHoteles() {
    Funciones para contacto.html
 --------------------------- */
 
-// Validar el formulario de contacto
+// Validar el formulario de contacto (todos los campos)
 function validarFormularioContacto() {
     const nombre = document.getElementById("nombre").value.trim();
     const email = document.getElementById("email").value.trim();
+    const asunto = document.getElementById("asunto").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
 
-    if (!nombre || !email) {
-        alert("Por favor, complete todos los campos.");
+    // Comprobar que ningún campo esté vacío
+    if (!nombre || !email || !asunto || !mensaje) {
+        alert("Por favor, complete todos los campos del formulario.");
         return false;
     }
 
