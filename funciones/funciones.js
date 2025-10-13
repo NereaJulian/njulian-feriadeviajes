@@ -6,8 +6,6 @@
 /* -------------------------
    Funciones para index.html
 --------------------------- */
-
-// Mensaje de bienvenida automático (aparece y desaparece)
 function mostrarMensajeBienvenida() {
     const mensajeDiv = document.getElementById("mensajeBienvenida");
     if (!mensajeDiv) return;
@@ -15,7 +13,6 @@ function mostrarMensajeBienvenida() {
     mensajeDiv.textContent = "¡Bienvenida a la web de la Feria de Viajes!";
     mensajeDiv.classList.add("show");
 
-    // Desaparece después de 8 segundos
     setTimeout(() => {
         mensajeDiv.classList.remove("show");
     }, 8000);
@@ -26,8 +23,6 @@ window.addEventListener("load", mostrarMensajeBienvenida);
 /* -------------------------
    Funciones para destinos.html
 --------------------------- */
-
-// Filtrar los destinos según el tipo (playa, montaña, ciudad)
 function filtrarDestinos(tipo) {
     const destinos = document.querySelectorAll(".destino");
     destinos.forEach(destino => {
@@ -42,7 +37,6 @@ function filtrarDestinos(tipo) {
 /* -------------------------
    Funciones para eventos.html
 --------------------------- */
-
 function mostrarEventosHoy() {
     const eventosContainer = document.getElementById("eventosHoy");
     if (!eventosContainer) return;
@@ -64,27 +58,25 @@ function mostrarEventosHoy() {
 /* -------------------------
    Funciones para hoteles.html
 --------------------------- */
-
 function mostrarOfertasHoteles() {
     const ofertasContainer = document.getElementById("ofertasHoteles");
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
     if (!ofertasContainer || !boton) return;
 
-    // Si ya hay contenido, lo borramos (ocultamos las ofertas)
+    // Alternar contenido
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
         boton.textContent = "Mostrar ofertas de hoteles hoy";
         return;
     }
 
-    // Si no hay contenido, mostramos las ofertas
     const ofertas = [
         { hotel: "Hotel Anantara", descuento: "20%" },
         { hotel: "The Peninsula Tokyo", descuento: "15%" },
         { hotel: "The Plaza Hotel", descuento: "10%" },
-        { hotel: "Hotel Barcelona Centro", descuento: "12%" },
+        { hotel: "Hotel W Barcelona", descuento: "12%" },
         { hotel: "Roma Antica Suites", descuento: "18%" },
-        { hotel: "Bangkok Riverside", descuento: "22%" }
+        { hotel: "Ritz Paris", descuento: "22%" }
     ];
 
     let html = "<ul>";
@@ -107,7 +99,6 @@ function mostrarOfertasHoteles() {
 /* -------------------------
    Funciones para contacto.html
 --------------------------- */
-
 function validarFormularioContacto(event) {
     event.preventDefault();
 
