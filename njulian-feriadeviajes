@@ -6,17 +6,19 @@ mi-feria-viajes/
 ├─ contacto.html
 ├─ estilos/
 │  └─ estilos.css
-└─ imagenes/
-   ├─ bali.jpg
-   ├─ bangkok.jpg
-   ├─ banner.jpg
-   ├─ barcelona.jpg
-   ├─ buenosaires.jpg
-   ├─ elcairo.jpg
-   ├─ losangeles.jpg
-   ├─ marrakech.jpg
-   ├─ nuevayork.jpg
-   ├─ paris.jpg
-   ├─ roma.jpg
-   ├─ tokyo.jpg
-   └─ zanzibar.jpg
+├─ imagenes/
+│  ├─ bali.jpg
+│  ├─ bangkok.jpg
+│  ├─ banner.jpg
+│  ├─ barcelona.jpg
+│  ├─ buenosaires.jpg
+│  ├─ elcairo.jpg
+│  ├─ losangeles.jpg
+│  ├─ marrakech.jpg
+│  ├─ nuevayork.jpg
+│  ├─ paris.jpg
+│  ├─ roma.jpg
+│  ├─ tokyo.jpg
+│  └─ zanzibar.jpg
+└─ funciones/
+   └─ funciones.js
