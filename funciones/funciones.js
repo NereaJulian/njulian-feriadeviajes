@@ -63,6 +63,12 @@ function mostrarOfertasHoteles() {
     const boton = document.querySelector("button[onclick='mostrarOfertasHoteles()']");
     if (!ofertasContainer || !boton) return;
 
+    // Inicializar el texto del botón si no se ha hecho
+    if (!boton.dataset.inicializado) {
+        boton.textContent = "Mostrar ofertas de hoteles hoy";
+        boton.dataset.inicializado = "true";
+    }
+
     // Alternar contenido
     if (ofertasContainer.innerHTML.trim() !== "") {
         ofertasContainer.innerHTML = "";
@@ -70,18 +76,19 @@ function mostrarOfertasHoteles() {
         return;
     }
 
+    // Ofertas con enlaces a la web oficial
     const ofertas = [
-        { hotel: "Hotel Anantara", descuento: "20%" },
-        { hotel: "The Peninsula Tokyo", descuento: "15%" },
-        { hotel: "The Plaza Hotel", descuento: "10%" },
-        { hotel: "Hotel W Barcelona", descuento: "12%" },
-        { hotel: "Roma Antica Suites", descuento: "18%" },
-        { hotel: "Ritz Paris", descuento: "22%" }
+        { hotel: "Hotel Anantara", descuento: "20%", url: "https://www.anantara.com/en/siam-bangkok/offers/10-10-exclusive" },
+        { hotel: "The Peninsula Tokyo", descuento: "15%", url: "https://www.lartisien.com/hotel/the-peninsula-tokyo" },
+        { hotel: "The Plaza Hotel", descuento: "10%", url: "https://www.theplazany.com/" },
+        { hotel: "Hotel W Barcelona", descuento: "12%", url: "https://www.marriott.com/en-us/hotels/bcnwh-w-barcelona/overview/" },
+        { hotel: "Roma Antica Suites", descuento: "18%", url: "https://www.radissonhotels.com/es-es/hoteles/radisson-collection-roma-antica" },
+        { hotel: "Ritz Paris", descuento: "22%", url: "https://www.ritzparis.com/" }
     ];
 
     let html = "<ul>";
     ofertas.forEach(oferta => {
-        html += `<li>${oferta.hotel} - ${oferta.descuento} de descuento</li>`;
+        html += `<li><a href="${oferta.url}" target="_blank" style="color:blue;">${oferta.hotel}</a> - ${oferta.descuento} de descuento</li>`;
     });
     html += "</ul>";
 
