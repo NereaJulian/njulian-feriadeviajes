@@ -18,7 +18,7 @@ function mostrarMensajeBienvenida() {
     // Desaparece después de 3 segundos
     setTimeout(() => {
         mensajeDiv.classList.remove("show");
-    }, 3000);
+    }, 8000);
 }
 
 // Ejecutar al cargar la página
